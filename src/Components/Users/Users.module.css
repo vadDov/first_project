@@ -51,7 +51,9 @@ p {
 }
 .unsubscribe {
     color: red;
+    border-radius: 5px;
 }
 .subscribe {
     color: green;
+    border-radius: 5px;
 }

@@ -3,6 +3,14 @@ import css from './Users.module.css';
 
 
 const Users = (props) => {
+
+    if(props.users.length === 0) {
+        props.setUsers([
+            { id:1, photoUrl: 'https://www.vokrug.tv/pic/person/e/b/f/1/ebf14965f14a2a2bf01dbc0e34d5f3b6.jpg', subscription: true, full_name: 'Vadim D', status: 'I am a boss!', location: { city_name: 'Osipivichi', country: 'Belarus' } },
+            { id:2, photoUrl: 'https://www.vokrug.tv/pic/person/e/b/f/1/ebf14965f14a2a2bf01dbc0e34d5f3b6.jpg', subscription: false, full_name: 'Andrei D', status: 'I am a boss2!', location: { city_name: 'Moscow', country: 'Russia' } },
+            { id:3, photoUrl: 'https://www.vokrug.tv/pic/person/e/b/f/1/ebf14965f14a2a2bf01dbc0e34d5f3b6.jpg', subscription: true, full_name: 'Vlad D', status: 'I am a boss3!', location: { city_name: 'Kiev', country: 'Ukraine' } },
+        ]);
+    }
     return(
         <div className = { css.usersPage }>
             {
