@@ -9,6 +9,7 @@ function Navbar() {
             <NavLink className= { css.item } activeClassName= { css.active } to= "/dialogs">Messages</NavLink>
             <NavLink className= { css.item } activeClassName= { css.active } to="/musics">Musics</NavLink>
             <NavLink className= { css.item } activeClassName= { css.active } to="/news">News</NavLink>
+            <NavLink className= { css.item } activeClassName= { css.active } to="/users">Find Users</NavLink>
         </nav>
     );
 }
