@@ -18,7 +18,6 @@ const Users = (props) => {
                     return  <div className={ css.window } key={ user.id }>
                                 <div className={ css.img_and_status }>
                                     <img className={ css.photo } src={ user.photoUrl } alt="" />
-                                    {/* <button onClick = { checkSubscription } className={ css.button }>subscribe</button> */}
                                     { user.subscription ? <button className={ css.unsubscribe } onClick={ () => { props.unsubscribe(user.id) } }>unsubscribe</button>
                                                         : <button className={ css.subscribe } onClick={ () => { props.subscribe(user.id) } }>subscribe</button>}
                                 </div>
