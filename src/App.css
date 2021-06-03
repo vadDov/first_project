@@ -1,0 +1,25 @@
+body {
+    width: 100%;
+}
+ul {
+    margin: 0;
+    padding: 0;
+}
+ul li{
+    list-style-type: none;
+}
+.App_wrapper {
+    width: 80%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-areas: 
+    "header header"
+    "nav content";
+    grid-template-rows: 60px 1fr;
+    grid-template-columns: 1fr 10fr;
+    grid-gap: 10px;
+}
+
+.App_content {
+    grid-area: content;
+}
