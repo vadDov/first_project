@@ -2,5 +2,56 @@
     background: goldenrod;
     height: 100%;
     width: 100%;
+    /* padding: 15px; */
     
+}
+.photo {
+    display: block;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+.img_and_status {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 0 10px 0 0;
+    flex: 1 1 10%;
+}
+p {
+    margin: 0;
+}
+.info {
+    border: 1px solid white;
+    padding: 15px;
+    border-radius: 15px;
+    flex: 1 1 90%;
+}
+.window {
+    display: flex;
+    margin: 0 0 15px 0;
+    font-size: 14px;
+    width: 70%;
+}
+.top {
+    display: flex;
+    justify-content: space-between;
+}
+.status {
+    color: white;
+}
+.full_name {
+    color: #ccc;
+}
+.location {
+    color: #ccc;
+}
+.button {
+    cursor: pointer;
+}
+.unsubscribe {
+    color: red;
+}
+.subscribe {
+    color: green;
 }
