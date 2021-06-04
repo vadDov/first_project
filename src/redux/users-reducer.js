@@ -13,7 +13,7 @@ const usersReducer = (state = inicialState, action) => {
                 ...state,
                 users: state.users.map( (user) => {
                     if(user.id === action.userId) {
-                        return { ...user, subscription: true }
+                        return { ...user, followed: true }
                     }
                     return user;
                 } )
@@ -24,7 +24,7 @@ const usersReducer = (state = inicialState, action) => {
                 ...state,
                 users: state.users.map( (user) => {
                     if(user.id === action.userId) {
-                        return { ...user, subscription: false }
+                        return { ...user, followed: false }
                     }
                     return user;
                 } )
