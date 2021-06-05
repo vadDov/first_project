@@ -1,6 +1,7 @@
 import React from 'react';
 import css from './Users.module.css';
 import userPhoto from './../../assets/images/user_photo.png';
+import Preloader from '../common/Preloader/Preloader';
 
 let Users = (props) => {
         let totalPages = Math.ceil(props.totalCount / props.pageSize);
@@ -34,6 +35,7 @@ let Users = (props) => {
                                 </div>
                     } )
                 }
+                { props.isFetching && <Preloader /> }
                 <div className={ css.totalPages }>
                     { pages.map( (p) => {
                         return <span onClick={ () => props.changeUsersPage(p) }  className={ `${props.currentPage === p && css.active} ${css.page}` }>{ p }</span>
