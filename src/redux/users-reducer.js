@@ -66,37 +66,37 @@ const usersReducer = (state = inicialState, action) => {
     }
 }
 
-export const subscribeAC = (userId) => {
+export const subscribe = (userId) => {
     return {
         type: 'SUBSCRIBE',
         userId
     }
 }
-export const unsubscribeAC = (userId) => {
+export const unsubscribe = (userId) => {
     return {
         type: 'UNSUBSCRIBE',
         userId
     }
 }
-export const setUsersAC = (users) => {
+export const setUsers = (users) => {
     return {
         type: 'SET_USERS',
         users
     }
 }
-export const setCurrentPageAC = (currentPage) => {
+export const setCurrentPage = (currentPage) => {
     return {
         type: 'SET_CURRENT_PAGE',
         currentPage
     }
 }
-export const setUsersTotalCountAC = (totalCount) => {
+export const setUsersTotalCount = (totalCount) => {
     return {
         type: 'SET_USERS_TOTAL_COUNT',
         totalCount
     }
 }
-export const toogleIsFetchingAC = (isFetching) => {
+export const toogleIsFetching = (isFetching) => {
     return {
         type: 'TOOGLE_IS_FETCHING',
         isFetching

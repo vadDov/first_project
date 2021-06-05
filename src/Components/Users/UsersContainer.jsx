@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React from 'react';
 import { connect } from 'react-redux';
-import { setCurrentPageAC, setUsersAC, subscribeAC, unsubscribeAC, setUsersTotalCountAC, toogleIsFetchingAC } from '../../redux/users-reducer';
+import { setCurrentPage, setUsers, subscribe, unsubscribe, setUsersTotalCount, toogleIsFetching } from '../../redux/users-reducer';
 import Users from './Users';
 
 class UsersAPIContainer extends React.Component {
@@ -48,28 +48,30 @@ let mapStateToProps = (state) => {
     }
 };
 
-let mapDispatchToProps = (dispatch) => {
-    return {
-        subscribe: (userId) => {
-            dispatch(subscribeAC(userId));
-        },
-        unsubscribe: (userId) => {
-            dispatch(unsubscribeAC(userId));
-        },
-        setUsers: (users) => {
-            dispatch(setUsersAC(users));
-        },
-        setCurrentPage: (currentPage) => {
-            dispatch(setCurrentPageAC(currentPage))
-        },
-        setUsersTotalCount: (totalCount) => {
-            dispatch(setUsersTotalCountAC(totalCount))
-        },
-        toogleIsFetching: (isFetching) => {
-            dispatch(toogleIsFetchingAC(isFetching))
-        }
-    }
-};
+// let mapDispatchToProps = (dispatch) => {
+//     return {
+//         subscribe: (userId) => {
+//             dispatch(subscribeAC(userId));
+//         },
+//         unsubscribe: (userId) => {
+//             dispatch(unsubscribeAC(userId));
+//         },
+//         setUsers: (users) => {
+//             dispatch(setUsersAC(users));
+//         },
+//         setCurrentPage: (currentPage) => {
+//             dispatch(setCurrentPageAC(currentPage))
+//         },
+//         setUsersTotalCount: (totalCount) => {
+//             dispatch(setUsersTotalCountAC(totalCount))
+//         },
+//         toogleIsFetching: (isFetching) => {
+//             dispatch(toogleIsFetchingAC(isFetching))
+//         }
+//     }
+// };
+
+let mapDispatchToProps = { subscribe, unsubscribe, setUsers, setCurrentPage, setUsersTotalCount, toogleIsFetching }
 
 const UsersContainer = connect(mapStateToProps, mapDispatchToProps)(UsersAPIContainer);
 
