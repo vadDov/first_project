@@ -38,7 +38,7 @@ let Users = (props) => {
                 { props.isFetching && <Preloader /> }
                 <div className={ css.totalPages }>
                     { pages.map( (p) => {
-                        return <span onClick={ () => props.changeUsersPage(p) }  className={ `${props.currentPage === p && css.active} ${css.page}` }>{ p }</span>
+                        return <span onClick={ () => props.changeUsersPage(p) } key={ p }  className={ `${props.currentPage === p && css.active} ${css.page}` }>{ p }</span>
                     } ) }
                 </div>
             </div>
