@@ -2,6 +2,7 @@ import React from 'react';
 import css from './Users.module.css';
 import userPhoto from './../../assets/images/user_photo.png';
 import Preloader from '../common/Preloader/Preloader';
+import { NavLink } from 'react-router-dom';
 
 let Users = (props) => {
         let totalPages = Math.ceil(props.totalCount / props.pageSize);
@@ -16,9 +17,11 @@ let Users = (props) => {
                     props.users.map( (user) => {
                         return  <div className={ css.window } key={ user.id }>
                                     <div className={ css.img_and_status }>
-                                        <img className={ css.photo } src={ user.photos.small  ? user.photos.small : userPhoto } alt="" />
+                                        <NavLink to = {`/profile/${user.id}`} className = { css.img_navlink }>
+                                            <img className={ css.photo } src={ user.photos.small  ? user.photos.small : userPhoto } alt="" />
+                                        </NavLink>
                                         { user.followed ? <button className={ css.unsubscribe } onClick={ () => { props.unsubscribe(user.id) } }>unsubscribe</button>
-                                                        : <button className={ css.subscribe } onClick={ () => { props.subscribe(user.id) } }>subscribe</button>}
+                                                            : <button className={ css.subscribe } onClick={ () => { props.subscribe(user.id) } }>subscribe</button>}
                                     </div>
                                     <div className={ css.info }>
                                         <div>
