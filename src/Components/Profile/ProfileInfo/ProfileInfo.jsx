@@ -3,6 +3,7 @@ import Preloader from '../../common/Preloader/Preloader';
 import css from './ProfileInfo.module.css';
 import smiley from '../../../assets/images/smiley.svg'
 import smile from '../../../assets/images/smile.svg'
+import userPhoto from '../../../assets/images/user_photo.png';
 
 const ProfileInfo = (props) => {
     if(!props.profile) {
@@ -13,7 +14,7 @@ const ProfileInfo = (props) => {
             <img className= { css.bg_img } src="https://vjoy.cc/wp-content/uploads/2019/07/1-1.jpg"></img>
             <div className = { css.user_profile }>
                 <div className= { css.description }>
-                    <img src = { props.profile.photos.large }></img>
+                    <img src = { props.profile.photos.large || userPhoto }></img>
                 </div>
                 <div className = { css.user_info }>
                     <div className = { css.about_user }>
