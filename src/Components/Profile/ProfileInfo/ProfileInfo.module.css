@@ -5,3 +5,28 @@
 .description {
     padding: 15px;
 }
+.user_profile {
+    display: flex;
+}
+.about_user {
+    margin: 0 15px 0 0;
+}
+.user_info {
+    display: flex;
+    color: #ccc;
+    font-weight: bold;
+    font-style: italic;
+}
+li {
+    margin: 0 0 15px 0;
+}
+b {
+    color: #000;
+    font-weight: 500;
+}
+.smiley {
+    width: 30px;
+    height: 25px;
+    margin-bottom: -6px;
+    
+}

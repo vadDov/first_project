@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg  PUBLIC '-//W3C//DTD SVG 1.1//EN'  'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'>
+<svg width="210mm" height="210mm" clip-rule="evenodd" fill-rule="evenodd" image-rendering="optimizeQuality" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" version="1.1" viewBox="0 0 21000 21000" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
+ <defs>
+  <style type="text/css">
+    .fil2 {fill:#434242}
+    .fil1 {fill:#FEFEFE}
+    .fil0 {fill:url(#f)}
+  </style>
+   <mask id="d">
+  <linearGradient id="e" x1="13490" x2="8936.5" y1="3581.3" y2="12134" gradientUnits="userSpaceOnUse">
+   <stop stop-color="#fff" offset="0"/>
+   <stop stop-color="#fff" stop-opacity="0" offset="1"/>
+  </linearGradient>
+    <rect x="1416" y="-10" width="19594" height="15736" fill="url(#e)"/>
+   </mask>
+  <radialGradient id="f" cx="85%" cy="25%">
+   <stop stop-color="#FFED00" offset="0"/>
+   <stop stop-color="#FECC00" offset=".54902"/>
+   <stop stop-color="#F7AA47" offset="1"/>
+  </radialGradient>
+ </defs>
+  <circle class="fil0" cx="10500" cy="10500" r="10500"/>
+  <path class="fil1" d="m15749 1408c5010 2893 6734 9291 3863 14308-5359-4718-11384-8281-18186-10500 2910-4994 9312-6700 14323-3808z" mask="url(#d)"/>
+  <path class="fil2" d="m15888 17004c4-84 6-169 6-254 0-2979-2415-5394-5394-5394s-5394 2415-5394 5394c0 85 2 170 6 254 132-2862 2494-5141 5388-5141s5256 2279 5388 5141z"/>
+   <ellipse class="fil2" cx="6047" cy="7041" rx="793" ry="1498"/>
+   <ellipse class="fil2" cx="14953" cy="7041" rx="793" ry="1498"/>
+</svg>
