@@ -1,7 +1,23 @@
 .header {
     grid-area: header;
     background-color: aqua;
+    padding: 10px;
 }
 .header img {
     width: 50px;
-} 
+}
+.login_block {
+    color: white;
+    float: right;
+    font-weight: bold;
+}
+.user_photo {
+    border-radius: 50%;
+}
+.login {
+    margin: 0 10px 0 0;
+    align-self: center;
+}
+.author {
+    display: flex;
+}
