@@ -1,3 +1,5 @@
+import { usersAPI } from "../API/app";
+
 const SET_AUTH_USER = 'SET_AUTH_USER';
 
 
@@ -24,13 +26,21 @@ const authReducer = (state = inicialState, action) => {
 }
 
 
-export const setAuthUser = (id, login, email, isAuth) => {
+const setAuthUser = (id, login, email) => {
     return {
         type: 'SET_AUTH_USER',
         id,
         login,
         email,
-        isAuth
+    }
+}
+
+export const autorization = () => {
+    return (dispatch) => {
+        usersAPI.getAuth().then( data => {
+            let { id, login, email } = data.data
+            dispatch(setAuthUser(id, login, email));
+        } )
     }
 }
 

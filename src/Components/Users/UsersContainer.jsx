@@ -1,27 +1,18 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { usersAPI } from '../../API/app';
-import { setCurrentPage, setUsers, subscribe, unsubscribe, setUsersTotalCount, toogleIsFetching, toogleIsFollowingProgress } from '../../redux/users-reducer';
+import { subscribe, unsubscribe, getUsers } from '../../redux/users-reducer';
 import Users from './Users';
 
 class UsersAPIContainer extends React.Component {
 
     componentDidMount() {
-        this.props.toogleIsFetching(true);
-        usersAPI.getUsers(this.props.currentPage, this.props.pageSize).then( data => {
-            this.props.setUsers(data.items);
-            this.props.toogleIsFetching(false);
-            this.props.setUsersTotalCount(data.totalCount);
-        } )
+        this.props.getUsers(this.props.currentPage, this.props.pageSize)
+
     }
 
     changeUsersPage = (pageNumber) => {
-        this.props.toogleIsFetching(true);
-        this.props.setCurrentPage(pageNumber);
-        usersAPI.getUsers(pageNumber, this.props.pageSize).then( data => {
-            this.props.setUsers(data.items)
-            this.props.toogleIsFetching(false);
-        } )
+        this.props.getUsers(pageNumber, this.props.pageSize);
     }
 
     render() {
@@ -35,7 +26,6 @@ class UsersAPIContainer extends React.Component {
                     currentPage = { this.props.currentPage }
                     isFetching = { this.props.isFetching }
                     followingInProgress = { this.props.followingInProgress }
-                    toogleIsFollowingProgress = { this.props.toogleIsFollowingProgress }
             />
         )
     }
@@ -75,7 +65,7 @@ let mapStateToProps = (state) => {
 //     }
 // };
 
-let mapDispatchToProps = { subscribe, unsubscribe, setUsers, setCurrentPage, setUsersTotalCount, toogleIsFetching, toogleIsFollowingProgress }
+let mapDispatchToProps = { subscribe, unsubscribe, getUsers }
 
 const UsersContainer = connect(mapStateToProps, mapDispatchToProps)(UsersAPIContainer);
 

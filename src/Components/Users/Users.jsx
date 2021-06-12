@@ -3,7 +3,6 @@ import css from './Users.module.css';
 import userPhoto from './../../assets/images/user_photo.png';
 import Preloader from '../common/Preloader/Preloader';
 import { NavLink } from 'react-router-dom';
-import { usersAPI } from '../../API/app';
 
 let Users = (props) => {
         let totalPages = Math.ceil(props.totalCount / props.pageSize);
@@ -25,25 +24,11 @@ let Users = (props) => {
 
                                         { user.followed ? 
                                             <button disabled = { props.followingInProgress.some( id => id === user.id ) } className={ css.unsubscribe } onClick={ () => {
-    
-                                                props.toogleIsFollowingProgress(true, user.id)
-                                                usersAPI.unfollow(user.id).then( data => {
-                                                    if(data.resultCode == 0) {
-                                                        props.unsubscribe(user.id)
-                                                    }
-                                                    props.toogleIsFollowingProgress(false, user.id)
-                                                } )
+                                                props.unsubscribe(user.id)
                                             } }>unsubscribe</button>
 
                                             : <button disabled = { props.followingInProgress.some( id => id === user.id ) } className={ css.subscribe } onClick={ () => {
-                                                
-                                                props.toogleIsFollowingProgress(true, user.id)
-                                                usersAPI.follow(user.id).then( data => {
-                                                    if(data.resultCode == 0) {
-                                                        props.subscribe(user.id) 
-                                                    }
-                                                    props.toogleIsFollowingProgress(false, user.id)
-                                                } )
+                                                props.subscribe(user.id)
                                             } }>subscribe</button>}
                                     </div>
                                     <div className={ css.info }>
