@@ -4,6 +4,7 @@ import userPhoto from './../../assets/images/user_photo.png';
 import Preloader from '../common/Preloader/Preloader';
 import { NavLink } from 'react-router-dom';
 import axios from 'axios';
+import { usersAPI } from '../../API/app';
 
 let Users = (props) => {
         let totalPages = Math.ceil(props.totalCount / props.pageSize);
@@ -18,34 +19,26 @@ let Users = (props) => {
                     props.users.map( (user) => {
                         return  <div className={ css.window } key={ user.id }>
                                     <div className={ css.img_and_status }>
+
                                         <NavLink to = {`/profile/${user.id}`} className = { css.img_navlink }>
                                             <img className={ css.photo } src={ user.photos.small  ? user.photos.small : userPhoto } alt="" />
                                         </NavLink>
+
                                         { user.followed ? 
-                                        <button className={ css.unsubscribe } onClick={ () => { 
-                                            axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${user.id}`, {
-                                                withCredentials: true,
-                                                headers: {
-                                                    'API-KEY': '8fce870e-62f9-4a69-b409-faa45fee6c14'
-                                                }
-                                            }).then( (responce) => {
-                                                if(responce.data.resultCode == 0) {
-                                                    props.unsubscribe(user.id)
-                                                }
-                                            } )
+                                            <button className={ css.unsubscribe } onClick={ () => { 
+                                                usersAPI.unfollow(user.id).then( data => {
+                                                    if(data.resultCode == 0) {
+                                                        props.unsubscribe(user.id)
+                                                    }
+                                                } )
                                             } }>unsubscribe</button>
 
-                                        : <button className={ css.subscribe } onClick={ () => { 
-                                            axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${user.id}`, { }, {
-                                                withCredentials: true,
-                                                headers: {
-                                                    'API-KEY': '8fce870e-62f9-4a69-b409-faa45fee6c14'
-                                                }
-                                            }).then( (responce) => {
-                                                if(responce.data.resultCode == 0) {
-                                                    props.subscribe(user.id) 
-                                                }
-                                            } )
+                                            : <button className={ css.subscribe } onClick={ () => {
+                                                usersAPI.follow(user.id).then( data => {
+                                                    if(data.resultCode == 0) {
+                                                        props.subscribe(user.id) 
+                                                    }
+                                                } )
                                             } }>subscribe</button>}
                                     </div>
                                     <div className={ css.info }>
