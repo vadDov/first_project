@@ -4,13 +4,15 @@ const SET_USERS = 'SET_USERS';
 const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
 const SET_USERS_TOTAL_COUNT = 'SET_USERS_TOTAL_COUNT';
 const TOOGLE_IS_FETCHING = 'TOOGLE_IS_FETCHING';
+const TOOGLE_IS_FOLLOWING_PROGRES = 'TOOGLE_IS_FOLLOWING_PROGRES';
 
 let inicialState = {
     users: [],
     currentPage: 1,
     totalCount: 0,
     pageSize: 100,
-    isFetching: false
+    isFetching: false,
+    followingInProgress: []
 }
 
 const usersReducer = (state = inicialState, action) => {
@@ -24,8 +26,7 @@ const usersReducer = (state = inicialState, action) => {
                     }
                     return user;
                 } )
-            }
-            
+            }      
         case UNSUBSCRIBE: 
             return {
                 ...state,
@@ -35,30 +36,33 @@ const usersReducer = (state = inicialState, action) => {
                     }
                     return user;
                 } )
-            }
-            
+            }          
         case SET_USERS:
             return {
                 ...state,
                 users: action.users
-            }
-        
+            }  
         case SET_CURRENT_PAGE:
             return {
                 ...state,
                 currentPage: action.currentPage
             }
-
         case SET_USERS_TOTAL_COUNT:
             return {
                 ...state,
                 totalCount: action.totalCount
             }
-
         case TOOGLE_IS_FETCHING:
             return {
                 ...state,
                 isFetching: action.isFetching
+            }
+        case TOOGLE_IS_FOLLOWING_PROGRES:
+            return {
+                ...state,
+                followingInProgress: action.isFetching
+                                    ? [...state.followingInProgress, action.userId]
+                                    : state.followingInProgress.filter( id => id !== action.userId )
             }
 
         default:
@@ -100,6 +104,13 @@ export const toogleIsFetching = (isFetching) => {
     return {
         type: 'TOOGLE_IS_FETCHING',
         isFetching
+    }
+}
+export const toogleIsFollowingProgress = (isFetching, userId) => {
+    return {
+        type: 'TOOGLE_IS_FOLLOWING_PROGRES',
+        isFetching,
+        userId
     }
 }
 

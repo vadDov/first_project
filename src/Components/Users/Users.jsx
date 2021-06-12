@@ -3,7 +3,6 @@ import css from './Users.module.css';
 import userPhoto from './../../assets/images/user_photo.png';
 import Preloader from '../common/Preloader/Preloader';
 import { NavLink } from 'react-router-dom';
-import axios from 'axios';
 import { usersAPI } from '../../API/app';
 
 let Users = (props) => {
@@ -25,19 +24,25 @@ let Users = (props) => {
                                         </NavLink>
 
                                         { user.followed ? 
-                                            <button className={ css.unsubscribe } onClick={ () => { 
+                                            <button disabled = { props.followingInProgress.some( id => id === user.id ) } className={ css.unsubscribe } onClick={ () => {
+    
+                                                props.toogleIsFollowingProgress(true, user.id)
                                                 usersAPI.unfollow(user.id).then( data => {
                                                     if(data.resultCode == 0) {
                                                         props.unsubscribe(user.id)
                                                     }
+                                                    props.toogleIsFollowingProgress(false, user.id)
                                                 } )
                                             } }>unsubscribe</button>
 
-                                            : <button className={ css.subscribe } onClick={ () => {
+                                            : <button disabled = { props.followingInProgress.some( id => id === user.id ) } className={ css.subscribe } onClick={ () => {
+                                                
+                                                props.toogleIsFollowingProgress(true, user.id)
                                                 usersAPI.follow(user.id).then( data => {
                                                     if(data.resultCode == 0) {
                                                         props.subscribe(user.id) 
                                                     }
+                                                    props.toogleIsFollowingProgress(false, user.id)
                                                 } )
                                             } }>subscribe</button>}
                                     </div>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { usersAPI } from '../../API/app';
-import { setCurrentPage, setUsers, subscribe, unsubscribe, setUsersTotalCount, toogleIsFetching } from '../../redux/users-reducer';
+import { setCurrentPage, setUsers, subscribe, unsubscribe, setUsersTotalCount, toogleIsFetching, toogleIsFollowingProgress } from '../../redux/users-reducer';
 import Users from './Users';
 
 class UsersAPIContainer extends React.Component {
@@ -33,7 +33,10 @@ class UsersAPIContainer extends React.Component {
                     totalCount = { this.props.totalCount }
                     pageSize = { this.props.pageSize }
                     currentPage = { this.props.currentPage }
-                    isFetching = { this.props.isFetching }/>
+                    isFetching = { this.props.isFetching }
+                    followingInProgress = { this.props.followingInProgress }
+                    toogleIsFollowingProgress = { this.props.toogleIsFollowingProgress }
+            />
         )
     }
 }
@@ -44,7 +47,8 @@ let mapStateToProps = (state) => {
         totalCount: state.usersPage.totalCount,
         currentPage: state.usersPage.currentPage,
         pageSize: state.usersPage.pageSize,
-        isFetching: state.usersPage.isFetching
+        isFetching: state.usersPage.isFetching,
+        followingInProgress: state.usersPage.followingInProgress
     }
 };
 
@@ -71,7 +75,7 @@ let mapStateToProps = (state) => {
 //     }
 // };
 
-let mapDispatchToProps = { subscribe, unsubscribe, setUsers, setCurrentPage, setUsersTotalCount, toogleIsFetching }
+let mapDispatchToProps = { subscribe, unsubscribe, setUsers, setCurrentPage, setUsersTotalCount, toogleIsFetching, toogleIsFollowingProgress }
 
 const UsersContainer = connect(mapStateToProps, mapDispatchToProps)(UsersAPIContainer);
 
