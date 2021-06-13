@@ -9,10 +9,7 @@ import { Redirect } from 'react-router-dom';
 const ProfileInfo = (props) => {
     if(!props.profile) {
         return <Preloader />
-    }
-    if(!props.isAuth) {
-        return <Redirect to = '/login' />
-    }
+    }    
     return(
         <div>
             <img className= { css.bg_img } src="https://vjoy.cc/wp-content/uploads/2019/07/1-1.jpg"></img>
