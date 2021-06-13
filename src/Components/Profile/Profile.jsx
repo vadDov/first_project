@@ -6,7 +6,8 @@ import ProfileInfo from './ProfileInfo/ProfileInfo';
 function Profile(props) {
     return(
         <div className= { css.content }>
-            <ProfileInfo profile = { props.profile }/>
+            <ProfileInfo profile = { props.profile } 
+                        isAuth = { props.isAuth }/>
             <MyPostsContainer />
         </div>
     );

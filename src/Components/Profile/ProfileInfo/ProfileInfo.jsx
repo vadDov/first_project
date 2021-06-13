@@ -4,10 +4,14 @@ import css from './ProfileInfo.module.css';
 import smiley from '../../../assets/images/smiley.svg'
 import smile from '../../../assets/images/smile.svg'
 import userPhoto from '../../../assets/images/user_photo.png';
+import { Redirect } from 'react-router-dom';
 
 const ProfileInfo = (props) => {
     if(!props.profile) {
         return <Preloader />
+    }
+    if(!props.isAuth) {
+        return <Redirect to = '/login' />
     }
     return(
         <div>
