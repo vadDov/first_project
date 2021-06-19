@@ -9,13 +9,14 @@
     display: flex;
 }
 .about_user {
-    margin: 0 15px 0 0;
+    margin: 40px 15px 0 0;
 }
 .user_info {
     display: flex;
     color: #ccc;
     font-weight: bold;
     font-style: italic;
+    position: relative;
 }
 li {
     margin: 0 0 15px 0;
@@ -29,4 +30,14 @@ b {
     height: 25px;
     margin-bottom: -6px;
     
+}
+.status {
+    color: #000;
+    position: absolute;
+    left: 50%;
+    top: 10px;
+}
+.list {
+    margin: 40px 0 0 0;
+
 }
