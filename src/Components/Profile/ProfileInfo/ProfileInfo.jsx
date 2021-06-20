@@ -18,7 +18,7 @@ const ProfileInfo = (props) => {
                     <img src = { props.profile.photos.large || userPhoto }></img>
                 </div>
                 <div className = { css.user_info }>
-                    <ProfileStatus />
+                    <ProfileStatus status = { props.status } updateStatus = { props.updateStatus }/>
                     <div className = { css.about_user }>
                         <ul>
                             <li><b>Full Name:</b> { props.profile.fullName || <img className = { css.smiley } src = { smiley }></img> }</li>

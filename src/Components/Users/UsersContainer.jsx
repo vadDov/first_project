@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { usersAPI } from '../../API/app';
 import { subscribe, unsubscribe, getUsers } from '../../redux/users-reducer';
 import Users from './Users';
 

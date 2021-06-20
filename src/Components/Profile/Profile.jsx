@@ -7,7 +7,9 @@ function Profile(props) {
     return(
         <div className= { css.content }>
             <ProfileInfo profile = { props.profile } 
-                        isAuth = { props.isAuth }/>
+                        isAuth = { props.isAuth }
+                        status = { props.status }
+                        updateStatus = { props.updateStatus }/>
             <MyPostsContainer />
         </div>
     );
