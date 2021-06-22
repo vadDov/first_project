@@ -18,7 +18,7 @@ function MyPosts(props) {
     let changePostText = (event) => {
         let text = event.target.value;
         // props.dispatch( updatePostTextActionCreator(newPostElem.current.value) )
-        props.changePostText(text);
+        props.updatePostText(text);
     }
 
     return(
