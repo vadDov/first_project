@@ -8,8 +8,6 @@ class ProfileStatus extends React.Component {
         status: this.props.status
     }
     activeAdditeModes = () => {
-        console.log(this.props.status);
-        console.log(this.state.status);
         this.setState({
             aditMode: true
         })
@@ -25,6 +23,15 @@ class ProfileStatus extends React.Component {
             status: e.currentTarget.value
         })
     }
+    componentDidUpdate(prevProps, prevState) {
+        if(prevProps.status !== this.props.status) {
+            this.setState({
+                status: this.props.status
+            })
+        }
+        
+    }
+
     render() {
         return(
             <div className = { css.status }>

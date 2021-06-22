@@ -8,7 +8,6 @@ import Header from './Header';
 class HeaderComponent extends React.Component {
 
     componentDidMount = () => {
-        console.log(this.props);
         this.props.autorization();
     }
 
