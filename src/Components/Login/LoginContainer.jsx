@@ -1,22 +1,25 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Login from './Login';
+import LoginForm from './Login';
+import { submitLoginForm } from '../../redux/login-reducer'
 
 class LoginContainer extends React.Component {
 
     render() {
         return (
-            <Login />
+            <LoginForm {...this.props}/>
         )
     }
 }
 
 let mapStateToProps = (state) => {
     return {
-        
+        login: state.form.login,
+        password: state.form.password,
+        remember: state.form.remember
     }
 }
 
-let mapDispathToProps = {  }
 
-export default connect(mapStateToProps, mapDispathToProps)(LoginContainer)
+
+export default connect(mapStateToProps, { submitLoginForm })(LoginContainer)
